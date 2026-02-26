@@ -1,10 +1,12 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const PORT = 3000;
 
 // ===== MONGODB CONNECTION =====
-mongoose.connect("mongodb+srv://stevesamuel64:steve2007@cluster0.8vtx5os.mongodb.net/?appName=Cluster0")
+mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log(err));
 
