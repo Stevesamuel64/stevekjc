@@ -44,13 +44,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
+    padding: 18px 6%;
     position: sticky;
     top: 0;
     backdrop-filter: blur(15px);
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.4);
     border-bottom: 1px solid var(--border-glass);
     z-index: 1000;
+    flex-wrap: wrap;
 }
 
 header h1 {
@@ -62,12 +63,11 @@ header h1 {
 }
 
 /* ===============================
-   COLORED ICON NAVBAR
+   NAVBAR
 ================================ */
-
 nav {
     display: flex;
-    gap: 18px;
+    gap: 16px;
     align-items: center;
 }
 
@@ -79,32 +79,33 @@ nav a {
     transition: 0.3s ease;
 }
 
-/* Individual Icon Colors */
-nav a:nth-child(1) i { color: #facc15; }  /* Home - Yellow */
-nav a:nth-child(2) i { color: #38bdf8; }  /* About - Blue */
-nav a:nth-child(3) i { color: #a855f7; }  /* Skills - Purple */
-nav a:nth-child(4) i { color: #22c55e; }  /* Projects - Green */
-nav a:nth-child(5) i { color: #ef4444; }  /* Contact - Red */
-
+nav a:nth-child(1) i { color: #facc15; }
+nav a:nth-child(2) i { color: #38bdf8; }
+nav a:nth-child(3) i { color: #a855f7; }
+nav a:nth-child(4) i { color: #22c55e; }
+nav a:nth-child(5) i { color: #ef4444; }
 
 nav a:hover {
-    background: rgba(227, 15, 15, 0.08);
+    background: rgba(255,255,255,0.08);
     transform: translateY(-3px) scale(1.1);
     box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
 }
 
+/* ===============================
+   HERO
+================================ */
 .hero {
-    padding: 100px 8%;
+    padding: 100px 6%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 40px;
 }
 
 .hero-text {
     flex: 1;
-    min-width: 600px;
+    min-width: 280px;
 }
 
 .hero-text h2 {
@@ -116,6 +117,7 @@ nav a:hover {
     font-size: 18px;
     margin-bottom: 30px;
     opacity: 0.9;
+    line-height: 1.6;
 }
 
 .hero-image {
@@ -127,6 +129,7 @@ nav a:hover {
 .hero-image img {
     width: 320px;
     height: 320px;
+    max-width: 100%;
     object-fit: cover;
     border-radius: 50%;
     border: 4px solid var(--accent);
@@ -158,32 +161,21 @@ nav a:hover {
     flex-wrap: wrap;
 }
 
-.outline-btn {
-    background: transparent;
-    border: 2px solid var(--accent);
-    color: var(--accent);
-}
-
 /* ===============================
-   SOCIAL LINKS
+   SOCIAL
 ================================ */
 .social-links {
     margin-top: 40px;
     display: flex;
     gap: 20px;
-}
-
-.social-links a {
-    text-decoration: none;
-    color: var(--accent-light);
-    font-weight: 500;
+    flex-wrap: wrap;
 }
 
 /* ===============================
    SECTIONS
 ================================ */
 section {
-    padding: 80px 8%;
+    padding: 80px 6%;
 }
 
 .section-title {
@@ -195,17 +187,15 @@ section {
 }
 
 /* ===============================
-   CARDS (GLASS STYLE)
+   CARDS
 ================================ */
-.cards,
-.cert-container {
+.cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
-.card,
-.cert-card {
+.card {
     background: var(--card-bg);
     backdrop-filter: blur(15px);
     border: 1px solid var(--border-glass);
@@ -215,8 +205,7 @@ section {
     text-align: center;
 }
 
-.card:hover,
-.cert-card:hover {
+.card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25);
 }
@@ -233,18 +222,12 @@ section {
     gap: 10px;
 }
 
-/* Brand Colors */
-
 .fa-python { color: #3776ab; }
 .fa-html5 { color: #e34f26; }
 .fa-css3-alt { color: #1572b6; }
 .fa-js { color: #f7df1e; }
 .fa-figma { color: #f24e1e; }
 .fa-aws { color: #ff9900; }
-
-.cert-icon i {
-    font-size: 42px;
-}
 
 /* ===============================
    CONTACT
@@ -299,16 +282,46 @@ footer {
 }
 
 /* ===============================
-   RESPONSIVE
+   RESPONSIVE BREAKPOINTS
 ================================ */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .hero-text h2 {
+        font-size: 40px;
+    }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
-    .hero {
+
+    header {
         flex-direction: column;
+        gap: 15px;
         text-align: center;
     }
 
+    nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 70px 5%;
+    }
+
     .hero-text h2 {
-        font-size: 30px;
+        font-size: 28px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
     }
 
     .hero-image img {
@@ -316,9 +329,29 @@ footer {
         height: 220px;
     }
 
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
+    section {
+        padding: 60px 5%;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+
+    .hero-text h2 {
+        font-size: 22px;
+    }
+
+    .hero-image img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .btn-primary {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 20px;
     }
 }
