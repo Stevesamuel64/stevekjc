@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Steve P Samuel | UI UX Designer & Cloud Engineer</title>
+
+<!-- SEO -->
+<meta name="description" content="Steve P Samuel - Cloud Engineer & UI/UX Designer Portfolio Website">
+<meta name="keywords" content="Steve Samuel, Cloud Engineer, UI UX Designer, AWS, Portfolio">
+<meta name="author" content="Steve P Samuel">
+
+<title>Steve P Samuel | Cloud Engineer</title>
+
+<!-- Favicon -->
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -15,17 +25,31 @@
 
 <header>
     <h1>Steve P Samuel</h1>
-    <nav>
-        <a href="#top">Home</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#contact">Contact</a>
-    </nav>
+
+    <div class="nav-right">
+        <nav id="navbar">
+            <a href="#top">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Dark Toggle -->
+        <button id="themeToggle"><i class="fas fa-moon"></i></button>
+
+        <!-- Hamburger -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
 </header>
 
-<section class="hero">
-
+<!-- HERO -->
+<section class="hero fade-in">
     <div class="hero-text">
         <h2>Hi, I'm Steve P Samuel <br>Cloud Engineer</h2>
         <p>
@@ -35,147 +59,87 @@
 
         <div class="hero-buttons">
             <button class="btn-primary" id="aboutBtn">About Me</button>
-
             <a href="files/resume.pdf" download class="btn-primary outline-btn">
                 Download Resume
             </a>
         </div>
-        <div class="social-links">
-    <a href="https://linkedin.com/in/yourprofile" target="_blank">
-        <i class="fab fa-linkedin"></i> LinkedIn
-    </a>
 
-    <a href="https://github.com/yourprofile" target="_blank">
-        <i class="fab fa-github"></i> GitHub
-    </a>
-</div>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        </div>
     </div>
 
     <div class="hero-image">
         <img src="images/steve.jpg" alt="Steve P Samuel">
     </div>
-
 </section>
-<section id="about" class="about-section">
+
+<!-- ABOUT -->
+<section id="about" class="fade-in">
     <h2 class="section-title">About Me</h2>
-
-    <div class="about-content">
-        <h3 class="about-name">Hi, I’m Steve P Samuel</h3>
-
-        <p>
-            A passionate tech enthusiast and aspiring cloud computing professional dedicated 
-            to building scalable, secure, and user-centered digital solutions.
-        </p>
-
-        <p>
-            My journey into technology began with curiosity — understanding how systems work,
-            how applications scale, and how user experience shapes digital success. 
-            Today, I combine <span class="highlight">Cloud Engineering</span> and 
-            <span class="highlight">UI/UX Design</span> to create solutions that are not only
-            technically strong but also intuitive and impactful.
-        </p>
-
-        <p>
-            I actively work on hands-on projects involving 
-            <span class="highlight">AWS Cloud Architecture</span>, 
-            automation using <span class="highlight">Python</span>, 
-            full-stack web development, and DevOps practices.
-        </p>
-
-        <p>
-            I hold certifications including 
-            <span class="highlight">NASSCOM Digital Engineering</span>, 
-            <span class="highlight">AWS Cloud</span>, 
-            <span class="highlight">MongoDB</span>, and 
-            <span class="highlight">Infosys Frontend Development</span>.
-        </p>
-
-        <p>
-            My goal is to contribute to innovative teams, design scalable cloud-native systems,
-            and build digital experiences that make real-world impact.
-        </p>
-    </div>
+    <p>
+        Passionate cloud engineer building scalable and user-centered digital solutions.
+    </p>
 </section>
 
-<section id="skills">
+<!-- SKILLS -->
+<section id="skills" class="fade-in">
     <h2 class="section-title">Skills</h2>
-
     <div class="cards">
-        <div class="card skill-card">
-            <div class="skill-icon">🎨</div>
-            <h3>UI UX Design</h3>
-            <p>Wireframing, Prototyping, Interaction Design, User Research</p>
+        <div class="card">UI/UX Design</div>
+        <div class="card">Cloud Engineering</div>
+        <div class="card">Frontend Development</div>
+        <div class="card">Python</div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade-in">
+    <h2 class="section-title">Projects</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Cloud Portfolio Deployment</h3>
+            <p>Deployed full-stack portfolio using Node.js, MongoDB Atlas & Render.</p>
         </div>
 
-        <div class="card skill-card">
-            <div class="skill-icon">☁️</div>
-            <h3>Cloud Engineering</h3>
-            <p>AWS, Azure, DevOps, Cloud Architecture</p>
+        <div class="card">
+            <h3>AWS Architecture Lab</h3>
+            <p>Designed scalable cloud architecture using EC2, S3 and IAM.</p>
         </div>
 
-        <div class="card skill-card">
-            <div class="skill-icon">💻</div>
-            <h3>Frontend Development</h3>
-            <p>HTML5, CSS3, JavaScript, Responsive Design</p>
-        </div>
-
-        <div class="card skill-card">
-            <div class="skill-icon">🐍</div>
-            <h3>Python Development</h3>
-            <p>Automation, Scripting, Backend Logic, API Integration</p>
+        <div class="card">
+            <h3>Automation Scripts</h3>
+            <p>Built automation tools using Python for cloud workflows.</p>
         </div>
     </div>
 </section>
 
-<section id="certifications">
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="fade-in">
     <h2 class="section-title">Certifications</h2>
-
-    <div class="cert-container">
-        <div class="cert-card">
-            <div class="cert-icon">🏅</div>
-            <h3>NASSCOM Digital Engineering</h3>
-            <p>Industry-recognized certification in digital engineering fundamentals.</p>
-        </div>
-
-        <div class="cert-card">
-            <div class="cert-icon">☁️</div>
-            <h3>AWS Cloud Certification</h3>
-            <p>Validated knowledge in cloud architecture and AWS services.</p>
-        </div>
-
-        <div class="cert-card">
-            <div class="cert-icon">🍃</div>
-            <h3>MongoDB Certification</h3>
-            <p>Certified in NoSQL database design and MongoDB operations.</p>
-        </div>
-
-        <div class="cert-card">
-            <div class="cert-icon">💻</div>
-            <h3>Infosys Frontend Developer</h3>
-            <p>Certified in HTML, CSS, and JavaScript development.</p>
-        </div>
+    <div class="cards">
+        <div class="card">NASSCOM</div>
+        <div class="card">AWS</div>
+        <div class="card">MongoDB</div>
+        <div class="card">Infosys</div>
     </div>
 </section>
 
-<section id="contact">
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
     <h2 class="section-title">Contact Me</h2>
 
     <div class="contact-container">
-       <form id="contactForm" class="contact-form">
-    <div class="form-group">
-        <input type="text" name="name" placeholder="Your Name" required>
-    </div>
+        <form id="contactForm" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
 
-    <div class="form-group">
-        <input type="email" name="email" placeholder="Your Email" required>
-    </div>
+            <button type="submit" class="btn-primary">Send Message</button>
 
-    <div class="form-group">
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    </div>
-
-    <button type="submit" class="btn-primary">Send Message</button>
-</form>
+            <div id="formMessage"></div>
+        </form>
     </div>
 </section>
 
