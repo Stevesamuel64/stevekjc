@@ -1,21 +1,28 @@
+/* ===============================
+   ROOT VARIABLES
+================================ */
 :root {
-    --bg: #0a0f1c;
-    --card-bg: #111827;
-    --text: #e6f1ff;
+    --bg: #0f0c29;
+    --bg-secondary: #242b01;
+    --bg-dark: #24243e;
 
-    --accent: #00f5ff;
-    --accent-light: #00ff9d;
-    --secondary: #0066ff;
+    --text: #f4f4f5;
 
-    --shadow: rgba(0, 255, 170, 0.15);
+    --accent: #99be15;
+    --accent-light: #c084fc;
+    --secondary: #a71f2c;
+
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-glass: rgba(255, 255, 255, 0.1);
 }
 
-/* Smooth Scroll */
+/* ===============================
+   GLOBAL
+================================ */
 html {
     scroll-behavior: smooth;
 }
 
-/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -24,13 +31,15 @@ html {
 }
 
 body {
-    background: radial-gradient(circle at top left, #0f1c3f, #0a0f1c 60%);
+    background: linear-gradient(135deg, var(--bg), var(--bg-secondary), var(--bg-dark));
+    background-attachment: fixed;
     color: var(--text);
-    transition: 0.3s ease;
-    overflow-x: hidden; /* prevents horizontal scroll */
+    overflow-x: hidden;
 }
 
-/* HEADER */
+/* ===============================
+   HEADER
+================================ */
 header {
     display: flex;
     justify-content: space-between;
@@ -38,10 +47,10 @@ header {
     padding: 20px 8%;
     position: sticky;
     top: 0;
-    background: rgba(10, 15, 28, 0.8);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    background: rgba(0,0,0,0.3);
+    border-bottom: 1px solid var(--border-glass);
     z-index: 1000;
-    border-bottom: 1px solid rgba(0,255,255,0.08);
 }
 
 header h1 {
@@ -52,48 +61,50 @@ header h1 {
     -webkit-text-fill-color: transparent;
 }
 
-/* NAVIGATION */
+/* ===============================
+   COLORED ICON NAVBAR
+================================ */
+
 nav {
     display: flex;
-    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
 }
 
 nav a {
-    margin-left: 25px;
     text-decoration: none;
-    color: var(--text);
-    font-weight: 500;
-    position: relative;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: 0.3s ease;
 }
 
-nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-light));
-    transition: 0.3s;
+/* Individual Icon Colors */
+nav a:nth-child(1) i { color: #facc15; }  /* Home - Yellow */
+nav a:nth-child(2) i { color: #38bdf8; }  /* About - Blue */
+nav a:nth-child(3) i { color: #a855f7; }  /* Skills - Purple */
+nav a:nth-child(4) i { color: #22c55e; }  /* Projects - Green */
+nav a:nth-child(5) i { color: #ef4444; }  /* Contact - Red */
+
+
+nav a:hover {
+    background: rgba(227, 15, 15, 0.08);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
 }
 
-nav a:hover::after {
-    width: 100%;
-}
-
-/* HERO */
 .hero {
     padding: 100px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 60px;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .hero-text {
     flex: 1;
-    min-width: 300px; /* FIXED (was 600px) */
+    min-width: 600px;
 }
 
 .hero-text h2 {
@@ -119,32 +130,26 @@ nav a:hover::after {
     object-fit: cover;
     border-radius: 50%;
     border: 4px solid var(--accent);
-    box-shadow: 0 0 30px var(--accent);
-    transition: 0.4s ease;
-    max-width: 100%;
+    box-shadow: 0 0 40px rgba(20, 1, 85, 0.4);
 }
 
-.hero-image img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 50px var(--accent-light);
-}
-
-/* BUTTON */
+/* ===============================
+   BUTTONS
+================================ */
 .btn-primary {
     background: linear-gradient(135deg, var(--secondary), var(--accent));
     padding: 14px 28px;
-    border: none;
     border-radius: 30px;
-    color: #0a0f1c;
-    font-weight: 700;
+    border: none;
+    color: white;
+    font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 0 15px var(--accent);
     transition: 0.3s;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 0 25px var(--accent-light);
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
 }
 
 .hero-buttons {
@@ -157,37 +162,26 @@ nav a:hover::after {
     background: transparent;
     border: 2px solid var(--accent);
     color: var(--accent);
-    box-shadow: none;
 }
 
-.outline-btn:hover {
-    background: var(--accent);
-    color: #0a0f1c;
-}
-
-/* SOCIAL */
+/* ===============================
+   SOCIAL LINKS
+================================ */
 .social-links {
     margin-top: 40px;
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
 .social-links a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     text-decoration: none;
-    color: var(--accent);
-    font-weight: 500;
-    transition: 0.3s ease;
-}
-
-.social-links a:hover {
     color: var(--accent-light);
+    font-weight: 500;
 }
 
-/* SECTIONS */
+/* ===============================
+   SECTIONS
+================================ */
 section {
     padding: 80px 8%;
 }
@@ -200,7 +194,9 @@ section {
     -webkit-text-fill-color: transparent;
 }
 
-/* CARDS */
+/* ===============================
+   CARDS (GLASS STYLE)
+================================ */
 .cards,
 .cert-container {
     display: grid;
@@ -210,21 +206,49 @@ section {
 
 .card,
 .cert-card {
-    background: linear-gradient(145deg, #111827, #0f172a);
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-glass);
     padding: 30px;
     border-radius: 20px;
-    border: 1px solid rgba(0,255,255,0.1);
-    box-shadow: 0 0 20px rgba(0,255,255,0.05);
-    transition: 0.3s;
+    transition: 0.4s ease;
+    text-align: center;
 }
 
 .card:hover,
 .cert-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 25px rgba(0,255,255,0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25);
 }
 
-/* CONTACT */
+/* ===============================
+   ICONS
+================================ */
+.skill-icon,
+.cert-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Brand Colors */
+
+.fa-python { color: #3776ab; }
+.fa-html5 { color: #e34f26; }
+.fa-css3-alt { color: #1572b6; }
+.fa-js { color: #f7df1e; }
+.fa-figma { color: #f24e1e; }
+.fa-aws { color: #ff9900; }
+
+.cert-icon i {
+    font-size: 42px;
+}
+
+/* ===============================
+   CONTACT
+================================ */
 .contact-container {
     display: flex;
     justify-content: center;
@@ -233,146 +257,40 @@ section {
 .contact-form {
     width: 100%;
     max-width: 600px;
-    background: linear-gradient(145deg, #111827, #0f172a);
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-glass);
     padding: 40px;
     border-radius: 20px;
-    border: 1px solid rgba(0,255,255,0.1);
-    box-shadow: 0 0 25px rgba(0,255,255,0.08);
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
     padding: 14px;
+    margin-bottom: 20px;
     border-radius: 10px;
-    border: 1px solid rgba(0,255,255,0.2);
-    font-size: 14px;
-    background: #0f172a;
+    border: 1px solid var(--border-glass);
+    background: rgba(255,255,255,0.05);
     color: var(--text);
 }
 
-/* FOOTER */
+/* ===============================
+   FOOTER
+================================ */
 footer {
     text-align: center;
     padding: 30px;
-    font-size: 14px;
-    border-top: 1px solid rgba(0,255,255,0.08);
     opacity: 0.7;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 1024px) {
-    .hero-text h2 {
-        font-size: 38px;
-    }
-    .hero-image img {
-        width: 260px;
-        height: 260px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    header {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    nav {
-        justify-content: center;
-        gap: 15px;
-    }
-
-    nav a {
-        margin: 0;
-    }
-
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 70px 5%;
-    }
-
-    .hero-text h2 {
-        font-size: 30px;
-        line-height: 1.4;
-    }
-
-    .hero-text p {
-        font-size: 16px;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-image {
-        margin-top: 30px;
-    }
-
-    .hero-image img {
-        width: 220px;
-        height: 220px;
-    }
-
-    .cards,
-    .cert-container {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-form {
-        padding: 30px;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-
-    section {
-        padding: 60px 5%;
-    }
-
-    .hero-text h2 {
-        font-size: 24px;
-    }
-
-    .section-title {
-        font-size: 22px;
-    }
-
-    .hero-image img {
-        width: 170px;
-        height: 170px;
-    }
-
-    .btn-primary {
-        padding: 12px 18px;
-        font-size: 14px;
-    }
-
-    .card,
-    .cert-card {
-        padding: 20px;
-    }
-
-    .contact-form {
-        padding: 20px;
-    }
-}
-
 /* ===============================
-   FADE-IN ANIMATION
+   FADE IN
 ================================ */
-
 .fade-in {
     opacity: 0;
     transform: translateY(40px);
-    transition: all 0.8s ease;
+    transition: 0.8s ease;
 }
 
 .fade-in.active {
@@ -381,119 +299,26 @@ footer {
 }
 
 /* ===============================
-   NAV RIGHT (Toggle + Hamburger)
+   RESPONSIVE
 ================================ */
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* ===============================
-   DARK / LIGHT TOGGLE
-================================ */
-
-#themeToggle {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 8px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#themeToggle:hover {
-    background: var(--accent);
-    color: #0a0f1c;
-}
-
-/* Light Mode */
-body.light-mode {
-    background: #f5f7fa;
-    color: #111;
-}
-
-body.light-mode .card,
-body.light-mode .cert-card,
-body.light-mode .contact-form {
-    background: #ffffff;
-    color: #111;
-}
-
-body.light-mode header {
-    background: rgba(255,255,255,0.9);
-}
-
-/* ===============================
-   HAMBURGER MENU
-================================ */
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: var(--accent);
-    transition: 0.3s;
-}
-
-/* ===============================
-   MOBILE NAV
-================================ */
-
 @media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text h2 {
+        font-size: 30px;
+    }
+
+    .hero-image img {
+        width: 220px;
+        height: 220px;
+    }
 
     nav {
-        position: absolute;
-        top: 70px;
-        right: -100%;
-        background: rgba(10,15,28,0.95);
-        flex-direction: column;
-        width: 220px;
-        padding: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 15px;
-        transition: 0.4s;
-        border-radius: 10px;
     }
-
-    nav.active {
-        right: 20px;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-}
-
-/* ===============================
-   PROJECT SECTION POLISH
-================================ */
-
-#projects .card {
-    text-align: left;
-}
-
-/* ===============================
-   FORM SUCCESS / ERROR UI
-================================ */
-
-#formMessage {
-    margin-top: 15px;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.success {
-    color: #00ff9d;
-}
-
-.error {
-    color: #ff4d4d;
 }
