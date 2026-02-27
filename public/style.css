@@ -1,9 +1,9 @@
 :root {
     --bg: #000000;
-    --bg-secondary: #070121;
+    --bg-secondary: #4f2d03;
     --bg-dark: #000000;
 
-    --text: #f4f4f5;
+    --text: #e2f78f;
 
     --accent: #99be15;
     --accent-light: #c084fc;
@@ -91,7 +91,7 @@ gap: 40px;
 .hero-text {
 flex: 1;
 min-width: 280px;
-color: #bcffa8;
+color: #f6ff00;
 }
 
 .hero-text h2 {
