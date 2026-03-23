@@ -1,26 +1,26 @@
 :root {
-    --bg: #000000;
-    --bg-secondary: #4f2d03;
-    --bg-dark: #000000;
+--bg: #000000;
+--bg-secondary: #4f2d03;
+--bg-dark: #000000;
 
-    --text: #e2f78f;
+--text: #e2f78f;
 
-    --accent: #99be15;
-    --accent-light: #c084fc;
-    --secondary: #a71f2c;
+--accent: #99be15;
+--accent-light: #c084fc;
+--secondary: #a71f2c;
 
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --border-glass: rgba(255, 255, 255, 0.1);
+--card-bg: rgba(255, 255, 255, 0.05);
+--border-glass: rgba(255, 255, 255, 0.1);
 }
 
 html {
-    scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
     font-family: 'Inter', sans-serif;
 }
 
