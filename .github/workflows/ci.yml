@@ -10,10 +10,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "18"
 
@@ -25,8 +25,8 @@ jobs:
           node server.js &
           sleep 5
 
-      - name: Test API endpoint
+      - name: Test API
         run: curl http://localhost:3000 || echo "Server running"
 
-      - name: CI Success
-        run: echo "All checks passed 🚀"
+      - name: Success
+        run: echo "CI passed 🚀"
