@@ -39,7 +39,7 @@ header {
     position: sticky;
     top: 0;
     backdrop-filter: blur(15px);
-    background: rgba(0,0,0,0.4);
+    background: rgba(255, 248, 248, 0.4);
     border-bottom: 1px solid var(--border-glass);
     z-index: 1000;
     flex-wrap: wrap;
@@ -67,7 +67,7 @@ nav a {
     transition: 0.3s ease;
 }
 
-nav a:nth-child(1) i { color: #facc15; }
+nav a:nth-child(1) i { color: #8715fa; }
 nav a:nth-child(2) i { color: #38bdf8; }
 nav a:nth-child(3) i { color: #a855f7; }
 nav a:nth-child(4) i { color: #22c55e; }
@@ -144,23 +144,15 @@ box-shadow: 0 0 40px rgba(20, 1, 85, 0.4);
     flex-wrap: wrap;
 }
 
-/* ===============================
-   SOCIAL
-================================ */
 .social-links {
     margin-top: 40px;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
 }
-
-/* ===============================
-   SECTIONS
-================================ */
 section {
     padding: 80px 6%;
 }
-
 .section-title {
     font-size: 32px;
     margin-bottom: 40px;
@@ -168,10 +160,6 @@ section {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
-/* ===============================
-   CARDS
-================================ */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -193,9 +181,6 @@ section {
     box-shadow: 0 20px 40px rgba(168, 85, 247, 0.25);
 }
 
-/* ===============================
-   ICONS
-================================ */
 .skill-icon,
 .cert-icon {
     font-size: 40px;
@@ -211,7 +196,6 @@ section {
     display: block;
 }
 
-
 .fa-python { color: #3776ab; }
 .fa-html5 { color: #e34f26; }
 .fa-css3-alt { color: #1572b6; }
@@ -219,9 +203,7 @@ section {
 .fa-figma { color: #f24e1e; }
 .fa-aws { color: #ff9900; }
 
-/* ===============================
-   CONTACT
-================================ */
+
 .contact-container {
     display: flex;
     justify-content: center;
@@ -248,18 +230,12 @@ section {
     color: var(--text);
 }
 
-/* ===============================
-   FOOTER
-================================ */
 footer {
     text-align: center;
     padding: 30px;
     opacity: 0.7;
 }
 
-/* ===============================
-   FADE IN
-================================ */
 .fade-in {
     opacity: 0;
     transform: translateY(40px);
@@ -271,18 +247,13 @@ footer {
     transform: translateY(0);
 }
 
-/* ===============================
-   RESPONSIVE BREAKPOINTS
-================================ */
 
-/* Tablets */
 @media (max-width: 1024px) {
     .hero-text h2 {
         font-size: 40px;
     }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
 
     header {
@@ -324,7 +295,6 @@ footer {
     }
 }
 
-/* Small Phones */
 @media (max-width: 480px) {
 
     .hero-text h2 {
