@@ -36,7 +36,7 @@ fadeElements.forEach(el => observer.observe(el));
 const hamburger = document.getElementById("hamburger");
 const navbar = document.getElementById("navbar");
 
-if (hamburger) {
+if (hamburger && navbar) {
     hamburger.addEventListener("click", () => {
         navbar.classList.toggle("active");
     });
@@ -48,8 +48,7 @@ if (hamburger) {
 
 const themeToggle = document.getElementById("themeToggle");
 
-// Load saved theme
-if (localStorage.getItem("theme") === "light") {
+if (themeToggle && localStorage.getItem("theme") === "light") {
     document.body.classList.add("light-mode");
     themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
 }
@@ -75,7 +74,12 @@ if (themeToggle) {
 const contactForm = document.getElementById("contactForm");
 const formMessage = document.getElementById("formMessage");
 
-if (contactForm) {
+// ✅ CHANGE THIS to your backend URL
+const API_URL = "/contact"; 
+// Example if needed:
+// const API_URL = "https://your-backend-url.onrender.com/contact";
+
+if (contactForm && formMessage) {
     contactForm.addEventListener("submit", async function (e) {
         e.preventDefault();
 
@@ -90,11 +94,12 @@ if (contactForm) {
             return;
         }
 
-        button.textContent = "Message Sent";
+        // ✅ FIXED: correct loading state
+        button.textContent = "Sending...";
         button.disabled = true;
 
         try {
-            const response = await fetch("/contact", {
+            const response = await fetch(API_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
