@@ -1,3 +1,7 @@
+// ===============================
+// SMOOTH SCROLL TO ABOUT
+// ===============================
+
 const aboutBtn = document.getElementById("aboutBtn");
 
 if (aboutBtn) {
@@ -9,35 +13,69 @@ if (aboutBtn) {
     });
 }
 
+// ===============================
+// FADE-IN ANIMATION (Intersection Observer)
+// ===============================
+
 const fadeElements = document.querySelectorAll(".fade-in");
 
-if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-                observer.unobserve(entry.target); 
-            }
-        });
-    }, { threshold: 0.2 });
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+        }
+    });
+}, { threshold: 0.2 });
 
-    fadeElements.forEach(el => observer.observe(el));
-}
+fadeElements.forEach(el => observer.observe(el));
 
+// ===============================
+// HAMBURGER MENU
+// ===============================
 
 const hamburger = document.getElementById("hamburger");
 const navbar = document.getElementById("navbar");
 
-if (hamburger && navbar) {
+if (hamburger) {
     hamburger.addEventListener("click", () => {
         navbar.classList.toggle("active");
     });
 }
 
+// ===============================
+// DARK / LIGHT MODE TOGGLE
+// ===============================
+
+const themeToggle = document.getElementById("themeToggle");
+
+// Load saved theme
+if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+
+        if (document.body.classList.contains("light-mode")) {
+            localStorage.setItem("theme", "light");
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        } else {
+            localStorage.setItem("theme", "dark");
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+        }
+    });
+}
+
+// ===============================
+// CONTACT FORM WITH SUCCESS UI
+// ===============================
+
 const contactForm = document.getElementById("contactForm");
 const formMessage = document.getElementById("formMessage");
 
-if (contactForm && formMessage) {
+if (contactForm) {
     contactForm.addEventListener("submit", async function (e) {
         e.preventDefault();
 
@@ -46,21 +84,13 @@ if (contactForm && formMessage) {
         const message = this.querySelector("textarea[name='message']").value.trim();
         const button = this.querySelector("button");
 
-
         if (!name || !email || !message) {
             formMessage.textContent = "Please fill all fields.";
             formMessage.className = "error";
             return;
         }
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            formMessage.textContent = "Enter a valid email.";
-            formMessage.className = "error";
-            return;
-        }
-
-        button.textContent = "Message Sent";
+        button.textContent = "Sending...";
         button.disabled = true;
 
         try {

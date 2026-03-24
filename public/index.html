@@ -27,14 +27,15 @@
     <h1>Steve P Samuel</h1>
 
     <div class="nav-right">
-        <!-- ✅ FIXED: added id="navbar" -->
-        <nav id="navbar">
-            <a href="#top"><i class="fas fa-house"></i></a>
-            <a href="#about"><i class="fas fa-user"></i></a>
-            <a href="#skills"><i class="fas fa-code"></i></a>
-            <a href="#certifications"><i class="fas fa-briefcase"></i></a>
-            <a href="#contact"><i class="fas fa-envelope"></i></a>
-        </nav>
+        <nav>
+    <a href="#top"><i class="fas fa-house"></i><span></span></a>
+    <a href="#about"><i class="fas fa-user"></i><span></span></a>
+    <a href="#skills"><i class="fas fa-code"></i><span></span></a>
+    <a href="#certifications"><i class="fas fa-briefcase"></i><span></span></a>
+    <a href="#contact"><i class="fas fa-envelope"></i><span></span></a>
+</nav>
+
+    
 
         <!-- Hamburger -->
         <div class="hamburger" id="hamburger">
@@ -47,7 +48,7 @@
 
 <!-- HERO -->
 <section class="hero fade-in">
-    <div class="hero-image">
+<div class="hero-image">
         <img src="images/steve.jpg" alt="Steve P Samuel">
     </div>
 
@@ -64,27 +65,68 @@
                 Download Resume
             </a>
         </div>
+
     </div>
+
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="fade-in">
     <h2 class="section-title">About Me</h2>
-    <p><strong>Hi, I’m Steve P Samuel.</strong> A Cloud Computing student passionate about building scalable, secure, and user-focused digital solutions.</p>
+    <p>
+        <strong>Hi, I’m Steve P Samuel.</strong>  
+        A Cloud Computing student passionate about building scalable, secure, and user-focused digital solutions.
+    </p>
+
+    <p>
+        I have a strong foundation in 
+        <span class="highlight">Python</span>, 
+        <span class="highlight">Java</span>, 
+        <span class="highlight">JavaScript</span>, 
+        <span class="highlight">C</span>, and 
+        <span class="highlight">C++</span>, 
+        and I enjoy transforming ideas into efficient, real-world applications.
+    </p>
+
+    <p>
+        As an <span class="highlight">AWS-certified learner</span> with front-end development experience, 
+        I combine cloud infrastructure knowledge with modern web technologies 
+        to create clean, responsive, and performance-driven systems.
+    </p>
+
+    <p>
+        I actively explore tools like 
+        <span class="highlight">PostgreSQL</span> and cloud-native platforms 
+        to strengthen my backend architecture and deployment expertise.
+    </p>
+
+    <p>
+        My goal is to grow as a 
+        <strong>Cloud Engineer</strong> and <strong>Full-Stack Developer</strong>, 
+        contributing to impactful projects that blend robust architecture 
+        with intuitive user experience.
+    </p>
+
 </section>
 
 <!-- SKILLS -->
+
 <section id="skills" class="fade-in">
     <h2 class="section-title">Skills</h2>
 
     <div class="cards">
+
         <div class="card skill-card">
-            <div class="skill-icon"><i class="fab fa-figma"></i></div>
+            <div class="skill-icon">
+                <i class="fab fa-figma"></i>
+            </div>
             <h3>UI/UX Design</h3>
         </div>
 
         <div class="card skill-card">
-            <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+            <div class="skill-icon">
+                <i class="fas fa-cloud"></i>
+            </div>
             <h3>Cloud Engineering</h3>
         </div>
 
@@ -96,18 +138,84 @@
             </div>
             <h3>Frontend Development</h3>
         </div>
+
+        <div class="card skill-card">
+            <div class="skill-icon">
+                <i class="fab fa-python"></i>
+            </div>
+            <h3>Python</h3>
+        </div>
+
+         <div class="card skill-card">
+            <div class="skill-icon">
+                <i class="fab fa-java"></i>
+            </div>
+            <h3>Java</h3>
+        </div>
+
+         <div class="card skill-card">
+            <div class="skill-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h3>C/C++</h3>
+        </div>
+
+    </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="fade-in">
+    <h2 class="section-title">Certifications</h2>
+
+    <div class="cards">
+
+        <div class="card cert-card">
+           <a href="files/resume.pdf" download class="cert-link">
+            <div class="cert-icon">
+                 <i class="fas fa-award"></i>
+            </div>
+            <h3>NASSCOM Digital Engineering</h3>
+          </a>
+        </div>
+
+        <div class="card cert-card">
+           <a href="files/resume.pdf" download class="cert-link"> 
+            <div class="cert-icon">
+                <i class="fab fa-aws"></i>
+            </div>
+            <h3>AWS Certification</h3>
+          </a>
+        </div>
+
+        <div class="card cert-card">
+           <a href="files/resume.pdf" download class="cert-link"> 
+            <div class="cert-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            <h3>MongoDB Certification</h3>
+           </a>
+        </div>
+
+        <div class="card cert-card">
+           <a href="files/resume.pdf" download class="cert-link">
+            <div class="cert-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h3>Infosys Frontend Developer</h3>
+           </a>  
+        </div>
+
     </div>
 </section>
 
 <!-- CONTACT -->
+
 <section id="contact" class="fade-in">
-    
-    <!-- ✅ FIXED: removed broken comment + removed <center> -->
-    <h2 class="section-title">
-        Contact Me
-        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-    </h2>
+    <center><h2 class="section-title">Contact Me   -->       <a href="#" target="_blank"><i class="fab fa-linkedin"></i> </a>
+            <a href="#" target="_blank"><i class="fab fa-github"></i></a></h2></center>
+     <div class="social-links">
+            
+        </div>
 
     <div class="contact-container">
         <form id="contactForm" class="contact-form">
@@ -116,6 +224,7 @@
             <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
 
             <button type="submit" class="btn-primary">Send Message</button>
+
             <div id="formMessage"></div>
         </form>
     </div>
