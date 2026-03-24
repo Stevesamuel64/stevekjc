@@ -1,11 +1,11 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
     branches: ["main"]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,5 +28,6 @@ jobs:
       - name: Test API
         run: curl http://localhost:3000 || echo "Server running"
 
-      - name: Success
-        run: echo "CI passed 🚀"
+      # 🚀 CD STEP (NEW)
+      - name: Trigger Render Deploy
+        run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
