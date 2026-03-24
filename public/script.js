@@ -1,7 +1,3 @@
-// ===============================
-// SMOOTH SCROLL TO ABOUT
-// ===============================
-
 const aboutBtn = document.getElementById("aboutBtn");
 
 if (aboutBtn) {
@@ -13,10 +9,6 @@ if (aboutBtn) {
     });
 }
 
-// ===============================
-// FADE-IN ANIMATION
-// ===============================
-
 const fadeElements = document.querySelectorAll(".fade-in");
 
 if ("IntersectionObserver" in window) {
@@ -24,7 +16,7 @@ if ("IntersectionObserver" in window) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("active");
-                observer.unobserve(entry.target); // ✅ better performance
+                observer.unobserve(entry.target); 
             }
         });
     }, { threshold: 0.2 });
@@ -32,9 +24,6 @@ if ("IntersectionObserver" in window) {
     fadeElements.forEach(el => observer.observe(el));
 }
 
-// ===============================
-// HAMBURGER MENU
-// ===============================
 
 const hamburger = document.getElementById("hamburger");
 const navbar = document.getElementById("navbar");
@@ -44,36 +33,6 @@ if (hamburger && navbar) {
         navbar.classList.toggle("active");
     });
 }
-
-// ===============================
-// DARK / LIGHT MODE TOGGLE
-// ===============================
-
-const themeToggle = document.getElementById("themeToggle");
-
-// ✅ Safe load theme
-if (themeToggle) {
-    if (localStorage.getItem("theme") === "light") {
-        document.body.classList.add("light-mode");
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    }
-
-    themeToggle.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
-
-        if (document.body.classList.contains("light-mode")) {
-            localStorage.setItem("theme", "light");
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        } else {
-            localStorage.setItem("theme", "dark");
-            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        }
-    });
-}
-
-// ===============================
-// CONTACT FORM
-// ===============================
 
 const contactForm = document.getElementById("contactForm");
 const formMessage = document.getElementById("formMessage");
@@ -87,14 +46,13 @@ if (contactForm && formMessage) {
         const message = this.querySelector("textarea[name='message']").value.trim();
         const button = this.querySelector("button");
 
-        // ✅ Validation
+
         if (!name || !email || !message) {
             formMessage.textContent = "Please fill all fields.";
             formMessage.className = "error";
             return;
         }
 
-        // ✅ Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             formMessage.textContent = "Enter a valid email.";
