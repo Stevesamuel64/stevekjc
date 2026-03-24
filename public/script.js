@@ -102,7 +102,7 @@ if (contactForm && formMessage) {
             return;
         }
 
-        button.textContent = "Sending...";
+        button.textContent = "Message Sent";
         button.disabled = true;
 
         try {
