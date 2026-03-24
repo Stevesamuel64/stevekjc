@@ -14,20 +14,23 @@ if (aboutBtn) {
 }
 
 // ===============================
-// FADE-IN ANIMATION (Intersection Observer)
+// FADE-IN ANIMATION
 // ===============================
 
 const fadeElements = document.querySelectorAll(".fade-in");
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-        }
-    });
-}, { threshold: 0.2 });
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target); // ✅ better performance
+            }
+        });
+    }, { threshold: 0.2 });
 
-fadeElements.forEach(el => observer.observe(el));
+    fadeElements.forEach(el => observer.observe(el));
+}
 
 // ===============================
 // HAMBURGER MENU
@@ -36,7 +39,7 @@ fadeElements.forEach(el => observer.observe(el));
 const hamburger = document.getElementById("hamburger");
 const navbar = document.getElementById("navbar");
 
-if (hamburger) {
+if (hamburger && navbar) {
     hamburger.addEventListener("click", () => {
         navbar.classList.toggle("active");
     });
@@ -48,13 +51,13 @@ if (hamburger) {
 
 const themeToggle = document.getElementById("themeToggle");
 
-// Load saved theme
-if (localStorage.getItem("theme") === "light") {
-    document.body.classList.add("light-mode");
-    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-}
-
+// ✅ Safe load theme
 if (themeToggle) {
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+
     themeToggle.addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
 
@@ -69,13 +72,13 @@ if (themeToggle) {
 }
 
 // ===============================
-// CONTACT FORM WITH SUCCESS UI
+// CONTACT FORM
 // ===============================
 
 const contactForm = document.getElementById("contactForm");
 const formMessage = document.getElementById("formMessage");
 
-if (contactForm) {
+if (contactForm && formMessage) {
     contactForm.addEventListener("submit", async function (e) {
         e.preventDefault();
 
@@ -84,8 +87,17 @@ if (contactForm) {
         const message = this.querySelector("textarea[name='message']").value.trim();
         const button = this.querySelector("button");
 
+        // ✅ Validation
         if (!name || !email || !message) {
             formMessage.textContent = "Please fill all fields.";
+            formMessage.className = "error";
+            return;
+        }
+
+        // ✅ Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            formMessage.textContent = "Enter a valid email.";
             formMessage.className = "error";
             return;
         }
