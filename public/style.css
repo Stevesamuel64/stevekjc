@@ -39,7 +39,7 @@ header {
     position: sticky;
     top: 0;
     backdrop-filter: blur(15px);
-    background: rgba(255, 248, 248, 0.4);
+    background: rgba(0, 0, 0, 0.4);
     border-bottom: 1px solid var(--border-glass);
     z-index: 1000;
     flex-wrap: wrap;
